@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <!--Adding a favicon I designed with Figma. This gives a better look to the page-->
+    <link rel="shortcut icon" type="image/png" href="images/favicon_io/favicon.ico">
+    <!--This link is importing my css code into html file-->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!--This header (Semantic) is going to be display from beginning to the end of the quiz-->
+    <header>
+        <h1>General Knowledge Quiz</h1>
+    </header>
+    <!--This section (Semantic) is the first interface (introduction) that the user is going to interact by typing his/her name-->
+    <section class="quizBox" id="introductionSection">
+        <div class="top_decoration">
+            <h2>Welcome !!!</h2>
+        </div>
+        <p><br>Have you ever wondered how much you know about the world?</br><br>Would you like to test your knowledge?</br>
+            <br>If you answered YES, then enter your name below and prepare to embark on an adventure full of questions.</br>
+        </p>
+        <input type="text" id="userName" placeholder="Enter your name">
+        <button type="button" class="startBtn" id="startingBtn">Start</button>
+    </section>
+    <!--This section (Semantic) contains all questions that are going to be modified by javascript
+    depending of the random question selector to be display-->
+    <section class="quizBox hide" id="Questions">
+        <div class="top_decoration">
+            <h3 class="questionTextPlace"></h3>
+            <p class="numbersPlace"></p>
+        </div>
+        <!--The following are the pre-designed elements that holds multiple choice questions
+        They will update dinamically using javascript (check responsiveness.js)-->
+        <section id="multipleChoiceSection" class="questionSection hide">
+            <ul>
+                <input type="radio" name="answers" id="radioInput0" class="radioInput">
+                <li class="choicesText" id="container0"></li>
+                <input type="radio" name="answers" id="radioInput1" class="radioInput">
+                <li class="choicesText" id="container1"></li>
+                <input type="radio" name="answers" id="radioInput2" class="radioInput">
+                <li class="choicesText" id="container2"></li>
+                <input type="radio" name="answers" id="radioInput3" class="radioInput">
+                <li class="choicesText" id="container3"></li>
+            </ul>
+        </section>
+         <!--Design for True or false questions-->
+        <section id="trueOrFalseSection" class="questionSection hide">
+            <section id="tfHeight">
+                <button type="button" name="trueOrFalse" class="tfBtnL" id="true">True</button>
+                <button type="button" name="trueOrFalse" class="tfBtnR" id="false">False</button>
+            </section>
+        </section>
+         <!--This will handle Text input questions, it will store the user's answer on a variable-->
+         <section id="textInputSection" class="questionSection hide">
+            <section id="textHeight">
+                <p class="userEnterText">Please write your answer below: </p>
+                <div class="textInputContainer"><input type="text" name="useranswer" id="userTextAnswer"></div>
+            </section>
+        </section>
+         <!--This will handle Photos questions, their sources will be modify by javascript depending on the question we randomly get-->
+         <section id="photosSection" class="questionSection hide">
+            <section id="photoHeight">
+                <img src="" alt="" id="image0" class="image">
+                <img src="" alt="" id="image1" class="image">
+                <img src="" alt="" id="image2" class="image">
+                <img src="" alt="" id="image3" class="image">
+            </section>
+        </section>
+   
+        <button type="button" class="startBtn" id="NextBtn">Next</button>
+    </section>
+    <!--This section (Semantic) is the result table that is going to be displayed at the end of the quiz for feedback, it is made using the table tag-->
+    <section class="quizBox hide" id="feedbackSection">
+        <div class="top_decoration">
+            <h2>Feedback</h2>
+        </div>
+        <p id="nameFeedback"></p>
+        <table>
+            <tr>
+                <td>Total Questions</td>
+                <td id="totalQuestions"></td>
+            </tr>
+            <tr>
+                <td>Correct</td>
+                <td id="numberOfCorrect"></td>
+            </tr>
+            <tr>
+                <td>Incorrect</td>
+                <td id="numberOfIncorrect"></td>
+            </tr>
+            <tr>
+                <td>Percentage</td>
+                <td id="percentage"></td>
+            </tr>
+            <tr>
+                <td>Score</td>
+                <td id="score"></td>
+            </tr>
+        </table>
+        <section id="incorrectFeedback" class="hide">
+            <div id="incorrectTop">
+                <img src="images/wrong_noBG.png" alt="wrong" id="wrongPicture">
+                <p class="comments">Incorrect:</p>
+            </div>
+            <div id="wrongQuestions">
+            </div>
+        </section>
+    </section>
+    
+    <!--These scripts reference my javascript code into my html file. Object script handles the bank of question array
+    and responsive handles all the quiz functionalities-->
+    <script src="js/objects.js"></script>
+    <script src="js/responsive.js"></script>
+    <footer>Jesus Cassino, 3049988, jesus.cassino@student.griffith.ie</footer>
+</body>
+</html>
